@@ -1,0 +1,34 @@
+
+int r = 10; //ขาต่อ LED1 สีแดง
+int g = 9; // ขาต่อ LED1 สีนํ้าเงิน
+int b = 8; // ขาต่อ LED1 สีเขียว
+
+void setup ()
+{
+  pinMode(r, OUTPUT);
+  pinMode(g, OUTPUT);
+  pinMode(b, OUTPUT);
+}
+
+void loop () {
+  color(0,0,1);
+  delay(1000); //เวลาติด
+  color(0,1,0);
+  delay(1000); //เวลาติด
+  color(1,0,0);
+  delay(1000); //เวลาติด
+  color(0,1,1);
+  delay(1000); //เวลาติด
+  color(1,0,1); 
+  delay(1000); //เวลาติด
+  color(1,1,0);
+  delay(1000); //เวลาติด
+  color(1,1,1);
+  delay(1000); //เวลาติด
+}
+
+void color(int rr, int gg, int bb) {
+  digitalWrite(r, rr);
+  digitalWrite(g, gg);
+  digitalWrite(b, bb);
+}

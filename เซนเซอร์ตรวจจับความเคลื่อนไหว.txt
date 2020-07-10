@@ -1,0 +1,26 @@
+int LED1 = 8; //ขาต่อ LED1 สีเขียว
+int LED2 = 10; //ขาต่อ LED1 สีแดง
+
+int inputPin = 3; //ขาต่อเซนเซอร์ตรวจจีบความเคลื่อนไหว
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(inputPin, INPUT);
+}
+
+void loop(){
+  Serial.print(inputPin);
+
+  if (digitalRead(inputPin)==1){
+    digitalWrite(LED1, 0); //ปิด LED
+    digitalWrite(LED2, 1); //เปิด LED
+    
+  }
+  else
+  {
+    digitalWrite(LED1, 1); //เปิด LED
+    digitalWrite(LED2, 0); //ปิด LED
+  }
+}

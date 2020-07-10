@@ -1,0 +1,72 @@
+const int pingPin = 12; // ขาต่อ Trig
+    int inPin = 11; // ขาต่อ Echo 
+    int LED1 = 10; // ขาต่อ LED1 สีแดง
+    int LED2 = 7; // ขาต่อ LED2
+    int LED3 = 6; // ขาต่อ LED3
+    int LED4 = 5; // ขาต่อ LED4
+    int LED5 = 4; // ขาต่อ LED5
+     
+    void setup() {
+      Serial.begin(9600);
+      pinMode(pingPin, OUTPUT);
+      pinMode(inPin, INPUT);
+      pinMode(LED1, OUTPUT);
+      pinMode(LED2, OUTPUT);
+      pinMode(LED3, OUTPUT);
+      pinMode(LED4, OUTPUT);
+      pinMode(LED5, OUTPUT);
+    }
+     
+    void loop()
+    {
+      long duration, distance;
+      digitalWrite(pingPin, LOW);
+      delayMicroseconds(2);
+      digitalWrite(pingPin, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(pingPin, LOW);
+      duration = pulseIn(inPin, HIGH);
+      distance = (duration/2) / 29.1;
+      
+ if (distance >= 500 || distance <= 0) {
+      Serial.print("OUT of range");
+      }
+    else {
+      Serial.print(" : ");
+      Serial.print(distance);
+      Serial.println(" cm");  
+      delay(200);   //เวลาตอบสนอง
+    }
+   
+    
+    if (distance < 5) {
+       digitalWrite(LED1,HIGH); // เปิด LED
+      }
+      else {
+       digitalWrite(LED1,LOW); // ปิด LED
+      }
+      if (distance < 10) {
+       digitalWrite(LED2,HIGH); // เปิด LED
+      }
+      else {
+       digitalWrite(LED2,LOW); // ปิด LED
+      }
+      if (distance < 20) {
+       digitalWrite(LED3,HIGH); // เปิด LED
+      }
+      else {
+       digitalWrite(LED3,LOW); // ปิด LED
+      }
+      if (distance < 40) {
+       digitalWrite(LED4,HIGH); // เปิด LED
+      }
+      else {
+       digitalWrite(LED4,LOW); // ปิด LED
+      }
+      if (distance < 80) {
+       digitalWrite(LED5,HIGH); // เปิด LED
+      }
+      else {
+       digitalWrite(LED5,LOW); // ปิด LED
+      }
+}

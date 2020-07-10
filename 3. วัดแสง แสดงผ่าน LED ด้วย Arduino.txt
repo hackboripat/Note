@@ -1,0 +1,42 @@
+#define LED1 10 // ขาต่อ LED1 สีแดง
+#define LED2  7 // ขาต่อ LED2
+#define LED3  6 // ขาต่อ LED3
+#define LED4  5 // ขาต่อ LED4
+#define LED5  4 // ขาต่อ LED5
+int LDR = 0; //ขาต่อเซนเซอร์แสง
+
+void setup() {
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+  pinMode(LED5, OUTPUT);
+  pinMode(LDR, INPUT); // ขา INPUT ของโมดูล
+  Serial.begin(9600);
+  Serial.println("Arduino Example Code");
+  
+}
+
+void loop() {
+
+  int val = digitalRead(11);
+  Serial.print("LRD = ");
+  Serial.println(val);
+  if(val > 0) {
+   digitalWrite(LED1, LOW); // ปิด LED
+   digitalWrite(LED2, HIGH); // เปิด LED
+   digitalWrite(LED3, HIGH); // เปิด LED
+   digitalWrite(LED4, HIGH); // เปิด LED
+   digitalWrite(LED5, HIGH); // เปิด LED
+   
+  }
+  else{
+   digitalWrite(LED1, HIGH); // เปิด LED
+   digitalWrite(LED2, LOW); // ปิด LED
+   digitalWrite(LED3, LOW); // ปิด LED 
+   digitalWrite(LED4, LOW); // ปิด LED
+   digitalWrite(LED5, LOW); // ปิด LED
+  }
+  delay(200); //เวลาการตอบสนอง
+}
+ 
